@@ -1,0 +1,24 @@
+DROP TABLE IF EXISTS `vnc_user`;
+
+CREATE TABLE `vnc_user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `vnc_connection`;
+
+CREATE TABLE `vnc_connection` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `host_name` varchar(255) DEFAULT NULL,
+  `port` int(11) DEFAULT NULL,
+  `protocol` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `user_id` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id_fk` (`user_id`),
+  CONSTRAINT `user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `vnc_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

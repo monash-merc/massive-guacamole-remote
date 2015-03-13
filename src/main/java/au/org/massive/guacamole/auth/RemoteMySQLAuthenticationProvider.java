@@ -55,14 +55,6 @@ public class RemoteMySQLAuthenticationProvider extends SimpleAuthenticationProvi
             // envAttributeValue = "xiaoming.Yu@monash.edu";
         }
 
-//        Enumeration<String> eHeaders = request.getHeaderNames();
-//        System.out.println("======== check shib attributes from the header  ....");
-//        while (eHeaders.hasMoreElements()) {
-//            String name = eHeaders.nextElement();
-//            Object object = request.getHeader(name);
-//            System.out.println("======= name values pairs : " + name + " - " + object);
-//        }
-
         //get mysql database connection parameters
         String mySQLHost = GuacamoleProperties.getRequiredProperty(RemoteAuthGuacamoleProperties.MYSQL_HOSTNAME);
         int mySQLPort = GuacamoleProperties.getRequiredProperty(RemoteAuthGuacamoleProperties.MYSQL_PORT);
